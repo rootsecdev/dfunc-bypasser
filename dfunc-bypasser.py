@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 import argparse
 import requests
 
@@ -15,7 +15,7 @@ class colors:
     orange='\033[33m'
     blue='\033[34m'
 
-print colors.green + """
+print(colors.green + """
 
                                 ,---,     
                                   .'  .' `\   
@@ -31,7 +31,7 @@ print colors.green + """
                                   |   ,.'       
                                   '---'         
 
-""" + "\n\t\t\t" + colors.blue + "authors: " + colors.orange + "__c3rb3ru5__" + ", " + "$_SpyD3r_$" + "\n" + colors.reset
+""" + "\n\t\t\t" + colors.blue + "authors: " + colors.orange + "__c3rb3ru5__" + ", " + "$_SpyD3r_$" + "\n" + colors.reset)
 
 if(args.url):
     url = args.url
@@ -42,7 +42,7 @@ elif(args.file):
     phpinfo = open(phpinfofile,'r').read()
 
 else:
-    print parser.print_help()
+    print(parser.print_help())
     exit()
 
 modules = []
@@ -78,14 +78,14 @@ for i in dangerous_functions:
         exploitable_functions.append(i)
 
 if len(exploitable_functions)==0:
-    print '\nThe disable_functions seems strong'
+    print('\nThe disable_functions seems strong')
 
 else:
-    print '\nPlease add the following functions in your disable_functions option: '
-    print ','.join(exploitable_functions)
+    print('\nPlease add the following functions in your disable_functions option: ')
+    print(','.join(exploitable_functions))
 
 if("imagick" in modules):
-    print '\nPHP-imagick module is present. It can be exploited using LD_PRELOAD method\n'
+    print('\nPHP-imagick module is present. It can be exploited using LD_PRELOAD method\n')
 
 if("PHP-FPM"):
-    print "If PHP-FPM is there stream_socket_sendto,stream_socket_client,fsockopen can also be used to be exploit by poisoning the request to the unix socket\n"
+    print("If PHP-FPM is there stream_socket_sendto,stream_socket_client,fsockopen can also be used to be exploit by poisoning the request to the unix socket\n")
